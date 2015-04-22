@@ -1,19 +1,26 @@
 import Ember from 'ember';
 import Application from '../../app';
-import Router from '../../router';
 import config from '../../config/environment';
+import '../helpers/test-steps';
 
 export default function startApp(attrs) {
-  var application;
 
-  var attributes = Ember.merge({}, config.APP);
-  attributes = Ember.merge(attributes, attrs); // use defaults, but you can override;
+    var App;
 
-  Ember.run(function() {
-    application = Application.create(attributes);
-    application.setupForTesting();
-    application.injectTestHelpers();
-  });
+    var attributes = Ember.merge({}, config.APP);
+    attributes = Ember.merge(attributes, attrs); // use defaults, but you can override;
 
-  return application;
+    Ember.run(function () {
+
+        App = Application.create(attributes);
+        App.setupForTesting();
+        App.injectTestHelpers();
+
+        config.testApp = App;
+        config.testApp.fakeRequests = attrs ? attrs.fakeRequests : [];
+        config.testApp.requestsProcessed = 0;
+
+    });
+
+    return App;
 }

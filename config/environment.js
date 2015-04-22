@@ -1,5 +1,4 @@
 /* jshint node: true */
-
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'check-your-vocab',
@@ -7,15 +6,23 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
+      I18N_COMPILE_WITHOUT_HANDLEBARS: true,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+        I18N_TRANSLATE_HELPER_SPAN: false
       }
+    },
+
+    contentSecurityPolicy: {
+      'report-uri': 'http://localhost:4200',
+      'style-src':  "'self' 'unsafe-inline' http://fonts.googleapis.com" // jshint ignore:line
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      currentLocale: 'de'
     }
   };
 

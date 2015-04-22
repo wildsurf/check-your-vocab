@@ -1,3 +1,24 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="container">
+  <ul class="nav-bar">
+    <li>
+      <a href="#" class="main">{{t 'navigation.home'}}</a>
+    </li>
+    <li class="has-flyout right">
+      <a class="main">{{view.currentLanguage}}</a>
+      <a class="flyout-toggle"></a>
+      <div class="flyout right">
+        <ul>
+          <li>
+           <a href="" {{action 'changeLanguage' 'en' target='view'}}>English</a>
+          </li>
+          <li>
+            <a href="" {{action 'changeLanguage' 'de' target='view'}}>Deutsch</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <h2 id="title">{{t 'welcomeToEmber'}}</h2>
 
-{{outlet}}
+  {{outlet}}
+</div>
