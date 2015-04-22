@@ -1,18 +1,18 @@
 <div class="container">
-  <ul class="nav-bar">
+  <ul class="nav-bar navigation">
     <li>
-      <a href="#" class="main">{{t 'navigation.home'}}</a>
+      <a href="#" class="main home">{{t 'navigation.home'}}</a>
     </li>
-    <li class="has-flyout right">
-      <a class="main">{{view.currentLanguage}}</a>
+    <li class="has-flyout right language-selector">
+      <a class="main current-language-name">{{view.currentLanguage}}</a>
       <a class="flyout-toggle"></a>
       <div class="flyout right">
         <ul>
           <li>
-           <a href="" {{action 'changeLanguage' 'en' target='view'}}>English</a>
+           <a name='en' href="" {{action 'changeLanguage' 'en' target='view'}}>English</a>
           </li>
           <li>
-            <a href="" {{action 'changeLanguage' 'de' target='view'}}>Deutsch</a>
+            <a name='de' href="" {{action 'changeLanguage' 'de' target='view'}}>Deutsch</a>
           </li>
         </ul>
       </div>
