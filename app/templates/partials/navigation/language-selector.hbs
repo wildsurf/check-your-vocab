@@ -1,0 +1,10 @@
+<li class="dropdown language-selector">
+  <a href="#" class="dropdown-toggle current-language-name" data-toggle="dropdown" role="button" aria-expanded="false">{{view.currentLanguage}}<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    {{#each languages}}
+      <li>
+        <a href="{{unbound code}}" name="{{unbound code}}" {{action 'changeLanguage' code target='view'}}><span class="flag-icon flag-icon-{{unbound code}}"></span>{{label}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</li>
