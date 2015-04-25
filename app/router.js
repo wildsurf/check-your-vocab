@@ -6,7 +6,22 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
- this.route('styleguide');
+
+  if (config.environment === 'development') {
+
+    this.route('styleguide');
+
+  }
+
+  this.resource('words', function() {
+    this.route('new');
+    this.route('edit');
+  });
+
+  this.resource('quiz', function() {
+    this.route('new');
+  });
+
 });
 
 export default Router;

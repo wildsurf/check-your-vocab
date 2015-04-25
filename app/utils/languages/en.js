@@ -2,9 +2,12 @@ export default {
   fullName: 'English',
   translation: {
     navigation: {
-      home: 'Home'
+      home: 'Home',
+      toggle: 'Toggle Navigation',
+      words: 'Vocabulary',
+      quiz: 'Practice'
     },
-    welcomeToEmber: 'Welcome to Ember'
+    title: 'Check your Vocab'
   }
 
 };

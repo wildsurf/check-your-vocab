@@ -1,24 +1,6 @@
 <div class="container">
-  <ul class="nav-bar navigation">
-    <li>
-      <a href="#" class="main home">{{t 'navigation.home'}}</a>
-    </li>
-    <li class="has-flyout right language-selector">
-      <a class="main current-language-name">{{view.currentLanguage}}</a>
-      <a class="flyout-toggle"></a>
-      <div class="flyout right">
-        <ul>
-          <li>
-           <a name='en' href="" {{action 'changeLanguage' 'en' target='view'}}>English</a>
-          </li>
-          <li>
-            <a name='de' href="" {{action 'changeLanguage' 'de' target='view'}}>Deutsch</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
-  <h2 id="title">{{t 'welcomeToEmber'}}</h2>
-
-  {{outlet}}
+  {{partial 'partials/navigation'}}
+  <div class="container">
+    {{outlet}}
+  </div>
 </div>

@@ -26,7 +26,7 @@ export function invoke(method, resource, data, options) {
     var url = getBaseUrl() + resource;
     var Connection = Ajax;
 
-    if(ENV.environment === 'test') {
+    if(ENV.APP.useMocks) {
         Connection = Mock;
     }
 
@@ -60,8 +60,8 @@ export function invoke(method, resource, data, options) {
     }
 
     // we need to manually call JSON.stringify and set the contentType to prevent JQuery from converting
-    //the data to formencoded representation
-    //TODO automatically turn xdate to isostring
+    // the data to formencoded representation
+    // TODO automatically turn xdate to isostring
     if(! _.isNull(data) && ! _.isUndefined(data)) {
         if(method.toUpperCase() === 'GET') {
             options.data = data;

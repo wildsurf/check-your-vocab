@@ -2,9 +2,12 @@ export default {
   fullName: 'Deutsch',
   translation: {
     navigation: {
-      home: 'Startseite'
+      home: 'Startseite',
+      toggle: 'Navi aus- oder einklappen',
+      words: 'Vokabeln',
+      quiz: 'Üben'
     },
-    welcomeToEmber: 'Willkommen bei Ember'
+    title: 'Check your Vocab'
   }
 
 };
