@@ -1,4 +1,4 @@
-import AbstractModel from '../abstract-model';
+import AbstractModel from 'check-your-vocab/models/abstract-model';
 
 var Defaults = {
   language1: '',

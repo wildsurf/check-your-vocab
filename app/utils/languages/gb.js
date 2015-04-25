@@ -7,6 +7,14 @@ export default {
       words: 'Vocabulary',
       quiz: 'Practice'
     },
+    index: {
+      bestWords: 'Best Words',
+      languageCombo: 'Languages',
+      word: 'Word',
+      translation: 'Translation',
+      score: 'Score',
+      worstWords: 'Worst Words'
+    },
     message: {
       success: {
         wordCreation: 'Congrats! You\'ve just added a new vocabulary!',

@@ -1,41 +1,21 @@
 <div class="jumbotron">
   <div class="row">
-    <h2>Best words</h2>
+    <h2>{{t 'index.bestWords'}}</h2>
     <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Language</th>
-          <th>Word</th>
-          <th>Translation</th>
-          <th>Score</th>
-        </tr>
-      </thead>
+      {{partial 'partials/index/header-row'}}
       <tbody>
-        <tr>
-          <td><span class="flag-icon flag-icon-es"></span> > <span class="flag-icon flag-icon-de"></span></td>
-          <td>Poner</td>
-          <td>Put</td>
-          <td>11</td>
-        </tr>
+        {{#each model}}
+          {{partial 'partials/index/hiscore-row'}}
+        {{/each}}
       </tbody>
     </table>
-    <h2>Worst words</h2>
+    <h2>{{t 'index.worstWords'}}</h2>
     <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Language</th>
-          <th>Word</th>
-          <th>Translation</th>
-          <th>Score</th>
-        </tr>
-      </thead>
+      {{partial 'partials/index/header-row'}}
       <tbody>
-        <tr>
-          <td><span class="flag-icon flag-icon-es"></span> > <span class="flag-icon flag-icon-de"></span></td>
-          <td>Almuerzo</td>
-          <td>Lunch</td>
-          <td>-20</td>
-        </tr>
+        {{#each model}}
+          {{partial 'partials/index/hiscore-row'}}
+        {{/each}}
       </tbody>
     </table>
   </div>

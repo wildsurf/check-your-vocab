@@ -7,6 +7,14 @@ export default {
       words: 'Vokabeln',
       quiz: 'Üben'
     },
+    index: {
+      bestWords: 'Beste Vokabeln',
+      languageCombo: 'Sprachen',
+      word: 'Wort',
+      translation: 'Übersetzung',
+      score: 'Punkte',
+      worstWords: 'Schlechteste Vokabeln'
+    },
     title: 'Check your Vocab',
     message: {
       success: {
