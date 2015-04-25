@@ -4,7 +4,7 @@ import Copyable from 'check-your-vocab/mixins/copyable';
 import Serializable from 'check-your-vocab/mixins/serializable';
 import Helpers from 'check-your-vocab/utils/various-helpers';
 
-var AbstractModel = Ember.Object.extend(Copyable, Serializable, {
+var AbstractModel = Ember.Object.extend(Ember.Validations.Mixin, Copyable, Serializable, {
 
     id: function () {
 
@@ -30,7 +30,7 @@ AbstractModel.reopenClass({
 
         var modelClass = this;
 
-        return this.leanFind(query, url, noLoader).then(function (data) {
+        return this.leanFind(query, url || this.resourceUrl, noLoader).then(function (data) {
 
             var models = _.map(data, function (model) {
 
@@ -112,7 +112,7 @@ AbstractModel.reopenClass({
 
         var modelClass = this;
 
-        return modelClass.create(_.extend(Helpers.utils.jsonClone(modelClass.Defaults), data));
+        return modelClass.create(_.extend(Helpers.jsonClone(modelClass.Defaults), data));
 
     }
 
