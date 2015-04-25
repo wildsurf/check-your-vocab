@@ -37,7 +37,7 @@ test('on first arriving at the page, the language defaults to DE', function() {
 });
 
 test('when choosing another language, it displays the other language', function() {
-  expect(2);
+  expect(1);
 
   visit('/');
 
@@ -46,9 +46,7 @@ test('when choosing another language, it displays the other language', function(
 
   andThen(function() {
     var languageName = $(elements.currentLanguageName).text();
-    var homeLinkText = $(elements.homeLink).text();
     equal(languageName, 'English', 'the language toggle shows the correct language');
-    equal(homeLinkText, 'Home', 'the text on the page is the right language');
   });
 
 });
