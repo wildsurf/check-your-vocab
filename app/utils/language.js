@@ -3,12 +3,12 @@ import ENV from 'check-your-vocab/config/environment';
 import windowFunctions from 'check-your-vocab/utils/window-functions';
 
 import de from './languages/de';
-import en from './languages/en';
+import gb from './languages/gb';
 
 var translations = {
 
     de:         de,
-    en:         en
+    gb:         gb
 
 };
 
