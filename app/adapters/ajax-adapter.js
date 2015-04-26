@@ -38,9 +38,9 @@ export default {
 
     },
 
-    findById: function (_id, modelClass) {
+    findById: function (_id, url, modelClass) {
 
-        return Server.invoke('GET', this.resourceUrl + '/' + _id).then(function (data) {
+        return Server.invoke('GET', url + '/' + _id).then(function (data) {
 
             return modelClass.create(data);
 
@@ -54,33 +54,33 @@ export default {
             data = data.serialize();
         }
 
-        return Server.invoke('POST', url || this.resourceUrl, data);
+        return Server.invoke('POST', url, data);
 
     },
 
-    update: function (data) {
+    update: function (data, url) {
 
         if (_.isArray(data)) {
-            return Server.invoke('PUT', this.resourceUrl, data);
+            return Server.invoke('PUT', url, data);
         }
 
         if (data.serialize) {
             data = data.serialize();
         }
 
-        return Server.invoke('PUT', this.resourceUrl + '/' + data._id, data);
+        return Server.invoke('PUT', url + '/' + data._id, data);
 
     },
 
-    remove: function (data) {
+    remove: function (data, url) {
 
         if (_.isArray(data)) {
 
-            return Server.invoke('DELETE', this.resourceUrl, data);
+            return Server.invoke('DELETE', url, data);
 
         }
 
-        return Server.invoke('DELETE', this.resourceUrl + '/' + data);
+        return Server.invoke('DELETE', url + '/' + data);
 
     }
 

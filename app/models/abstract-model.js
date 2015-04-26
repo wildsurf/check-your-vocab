@@ -56,13 +56,13 @@ AbstractModel.reopenClass({
 
   findById: function (_id) {
 
-    return this.getAdapter().findById(_id, this);
+    return this.getAdapter().findById(_id, this.resourceUrl, this);
 
   },
 
   insert: function (data, url) {
 
-    return this.getAdapter().insert(data, url);
+    return this.getAdapter().insert(data, url || this.resourceUrl);
 
   },
 
