@@ -1,8 +1,10 @@
 import Ember from 'ember';
-import Server from 'check-your-vocab/utils/server';
+import ENV from 'check-your-vocab/config/environment';
 import Copyable from 'check-your-vocab/mixins/copyable';
 import Serializable from 'check-your-vocab/mixins/serializable';
 import Helpers from 'check-your-vocab/utils/various-helpers';
+import AjaxAdapter from 'check-your-vocab/adapters/ajax-adapter';
+import MockAdapter from 'check-your-vocab/adapters/mock-adapter';
 
 var AbstractModel = Ember.Object.extend(Copyable, Serializable, {
 
@@ -20,101 +22,69 @@ var AbstractModel = Ember.Object.extend(Copyable, Serializable, {
 
 AbstractModel.reopenClass({
 
-    leanFind: function (query, url, noLoader) {
+  getAdapter: function() {
 
-        return Server.invoke('GET', url || this.resourceUrl, query, noLoader);
+    var adapter = AjaxAdapter;
 
-    },
+    if (ENV.APP.useMocks) {
 
-    find: function (query, url, noLoader) {
-
-        var modelClass = this;
-
-        return this.leanFind(query, url || this.resourceUrl, noLoader).then(function (data) {
-
-            var models = _.map(data, function (model) {
-
-                return modelClass.create(model);
-
-            });
-
-            models.totalItems = data.totalItems;
-
-            return models;
-
-        });
-
-    },
-
-    findOne: function (query, url, noLoader) {
-
-        query.limit = 1;
-
-        var modelClass = this;
-
-        return this.leanFind(query, url || this.resourceUrl, noLoader).then(function (data) {
-
-            return modelClass.create(data[0]);
-
-        });
-
-    },
-
-    findById: function (_id) {
-
-        var modelClass = this;
-
-        return Server.invoke('GET', this.resourceUrl + '/' + _id).then(function (data) {
-
-            return modelClass.create(data);
-
-        });
-
-    },
-
-    insert: function (data, url) {
-
-        if (data.serialize) {
-            data = data.serialize();
-        }
-
-        return Server.invoke('POST', url || this.resourceUrl, data);
-
-    },
-
-    update: function (data) {
-
-        if (_.isArray(data)) {
-            return Server.invoke('PUT', this.resourceUrl, data);
-        }
-
-        if (data.serialize) {
-            data = data.serialize();
-        }
-
-        return Server.invoke('PUT', this.resourceUrl + '/' + data._id, data);
-
-    },
-
-    remove: function (data) {
-
-        if (_.isArray(data)) {
-
-            return Server.invoke('DELETE', this.resourceUrl, data);
-
-        }
-
-        return Server.invoke('DELETE', this.resourceUrl + '/' + data);
-
-    },
-
-    getNewInstance: function (data) {
-
-        var modelClass = this;
-
-        return modelClass.create(_.extend(Helpers.utils.jsonClone(modelClass.Defaults), data));
+      adapter = MockAdapter;
 
     }
+
+    return adapter;
+
+  },
+
+  leanFind: function (query, url, noLoader) {
+
+    return this.getAdapter().leanFind(query, url || this.resourceUrl, noLoader);
+
+  },
+
+  find: function (query, url, noLoader) {
+
+    return this.getAdapter().find(query, url || this.resourceUrl, this, noLoader);
+
+  },
+
+  findOne: function (query, url, noLoader) {
+
+    return this.getAdapter().fidOne(query, url || this.resourceUrl, this, noLoader);
+
+  },
+
+  findById: function (_id) {
+
+    return this.getAdapter().findById(_id, this);
+
+  },
+
+  insert: function (data, url) {
+
+    return this.getAdapter().insert(data, url);
+
+  },
+
+  update: function (data) {
+
+    return this.getAdapter().update(data, this.resourceUrl);
+
+  },
+
+  remove: function (data) {
+
+    return this.getAdapter().remove(data, this.resourceUrl);
+
+  },
+
+  getNewInstance: function (data) {
+
+      var modelClass = this;
+
+      return modelClass.create(_.extend(Helpers.utils.jsonClone(modelClass.Defaults), data));
+
+  }
 
 });
 

@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import ENV from 'check-your-vocab/config/environment';
 import Ajax from './ajax-requests';
-import Mock from './mock-requests';
 
 var serverStatus = Ember.Object.create({
     isProcessingRequest: false,
@@ -25,10 +24,6 @@ export function invoke(method, resource, data, options) {
     var now = (new Date()).getTime();
     var url = getBaseUrl() + resource;
     var Connection = Ajax;
-
-    if(ENV.APP.useMocks) {
-        Connection = Mock;
-    }
 
     if(url.match(/\?/)) {
         url += '&v=' + now;

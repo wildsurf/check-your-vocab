@@ -16,10 +16,6 @@ export default function startApp(attrs) {
         App.setupForTesting();
         App.injectTestHelpers();
 
-        config.testApp = App;
-        config.testApp.fakeRequests = attrs ? attrs.fakeRequests : [];
-        config.testApp.requestsProcessed = 0;
-
     });
 
     return App;

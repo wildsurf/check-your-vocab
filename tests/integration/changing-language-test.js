@@ -5,13 +5,16 @@ var App;
 
 module('Integration - Changing Language', {
   setup: function() {
-    App = startApp({});
+
+    App = startApp({fakeRequests: {
+      'path': '/words'
+    }});
+
   },
   teardown: function() {
-    try {
+
     killApp(App);
 
-    }catch(e) { console.log(e);}
   }
 });
 
