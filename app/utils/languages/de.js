@@ -30,6 +30,11 @@ export default {
         wordDelete: 'Komisch, die Vokabel konnte nicht entfernt werden. Versuch es noch mal?'
       }
     },
+    words: {
+      title: 'Vokabeln',
+      add: 'Neue Vokabel',
+      save: 'Vokabel speichern'
+    }
   }
 
 };

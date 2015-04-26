@@ -1,0 +1,10 @@
+<h2>{{t 'words.title'}} {{#link-to 'words.new' classNames="btn btn-primary pull-right"}}{{t 'words.add'}}{{/link-to}}</h2>
+<hr>
+<table class="table table-striped top-three">
+  {{partial 'partials/index/header-row'}}
+  <tbody>
+    {{#each}}
+      {{partial 'partials/index/hiscore-row'}}
+    {{/each}}
+  </tbody>
+</table>

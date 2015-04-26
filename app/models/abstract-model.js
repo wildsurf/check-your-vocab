@@ -16,7 +16,37 @@ var AbstractModel = Ember.Object.extend(Copyable, Serializable, {
 
         return this.get('_id');
 
-    }.property('_id')
+    }.property('_id'),
+
+
+  save: function () {
+
+    if (this.get('isNew')) {
+
+      return this.constructor.insert(this)
+        .then(function (data) {
+
+          var responseData = data.data;
+
+          return responseData;
+
+        });
+
+    }
+
+    return this.constructor.update(this)
+      .then(function (data) {
+
+        return data;
+
+      });
+  },
+
+  remove: function () {
+
+    return AbstractModel.remove(this.get('_id'));
+
+  }
 
 });
 
@@ -81,9 +111,10 @@ AbstractModel.reopenClass({
   getNewInstance: function (data) {
 
       var modelClass = this;
+      var newModel = modelClass.create(_.extend(Helpers.utils.jsonClone(modelClass.Defaults), data));
+      newModel.set('isNew', true);
 
-      return modelClass.create(_.extend(Helpers.utils.jsonClone(modelClass.Defaults), data));
-
+      return newModel;
   }
 
 });

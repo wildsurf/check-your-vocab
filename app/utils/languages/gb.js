@@ -29,6 +29,11 @@ export default {
         wordDelete: 'Strange, the vocabulary could not be remove. Try again?'
       }
     },
+    words: {
+      title: 'Vocabulary',
+      add: 'New Vocabulary',
+      save: 'Save vocabulary'
+    },
     title: 'Check your Vocab'
   }
 

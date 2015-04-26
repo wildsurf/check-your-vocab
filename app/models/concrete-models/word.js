@@ -31,37 +31,6 @@ var WordClass = AbstractModel.extend({
               message: 'validations.translation2.presence'
           }
       }
-  },
-
-  save: function () {
-
-    var word = this;
-
-    if (word.get('isNew')) {
-
-    return WordClass.insert(word)
-      .then(function (data) {
-
-        var responseData = data.data;
-
-        return responseData;
-
-      });
-
-    }
-
-    return WordClass.update(word)
-      .then(function (data) {
-
-        return data;
-
-      });
-  },
-
-  remove: function () {
-
-    return WordClass.remove(this.get('_id'));
-
   }
 
 });
