@@ -1,19 +1,19 @@
 <div class="jumbotron">
   <div class="row">
     <h2>{{t 'index.bestWords'}}</h2>
-    <table class="table table-striped">
+    <table class="table table-striped top-three">
       {{partial 'partials/index/header-row'}}
       <tbody>
-        {{#each model}}
+        {{#each bestWords}}
           {{partial 'partials/index/hiscore-row'}}
         {{/each}}
       </tbody>
     </table>
     <h2>{{t 'index.worstWords'}}</h2>
-    <table class="table table-striped">
+    <table class="table table-striped bottom-three">
       {{partial 'partials/index/header-row'}}
       <tbody>
-        {{#each model}}
+        {{#each worstWords}}
           {{partial 'partials/index/hiscore-row'}}
         {{/each}}
       </tbody>

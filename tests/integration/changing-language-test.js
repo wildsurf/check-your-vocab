@@ -6,9 +6,7 @@ var App;
 module('Integration - Changing Language', {
   setup: function() {
 
-    App = startApp({fakeRequests: {
-      'path': '/words'
-    }});
+    App = startApp();
 
   },
   teardown: function() {
