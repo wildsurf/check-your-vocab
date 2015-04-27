@@ -26,16 +26,22 @@ export default {
         wordList: 'Sorry, there was an error getting the vocabulary',
         wordOne: 'Strange, this word could not be found.',
         wordUpdate: 'Strange, this word coud not be updated. Try again?',
-        wordDelete: 'Strange, the vocabulary could not be remove. Try again?'
+        wordDelete: 'Strange, the vocabulary could not be remove. Try again?',
+        wordExists: 'Strange, the vocabulary already exists. Try again?'
       }
     },
     words: {
       title: 'Vocabulary',
       add: 'New Vocabulary',
       save: 'Save vocabulary',
-      category: 'Category'
+      category: 'Category',
+      action: 'Action'
     },
-    title: 'Check your Vocab'
+    title: 'Check your Vocab',
+    action: {
+      edit: 'Edit',
+      'delete': 'Delete'
+    }
   }
 
 };

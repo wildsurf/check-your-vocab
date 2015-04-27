@@ -17,11 +17,12 @@ export default Ember.ObjectController.extend({
 
   saveLanguagePref: function() {
 
-    if (this.get('model.language1') && this.get('model.language2')) {
+    if (this.get('model.language1') && this.get('model.language2') && this.get('model.category')) {
 
       Session.languagePref = {
         language1: this.get('model.language1'),
-        language2: this.get('model.language2')
+        language2: this.get('model.language2'),
+        category: this.get('model.category')
       };
 
     }
@@ -34,10 +35,11 @@ export default Ember.ObjectController.extend({
       return;
     }
 
-    if (Session.languagePref) {
+    if (Session.languagePref && !this.get('model._id')) {
 
       this.set('model.language1', Session.languagePref.language1);
       this.set('model.language2', Session.languagePref.language2);
+      this.set('model.category', Session.languagePref.category);
 
     }
 

@@ -27,14 +27,20 @@ export default {
         wordList: 'Sorry, die Vokabeln sind verschwunden.',
         wordOne: 'Komisch, die Vokabel konnte nicht gefunden werden.',
         wordUpdate: 'Komisch, die Vokabel konnte nicht aktualisiert werden. Versuch es noch mal?',
-        wordDelete: 'Komisch, die Vokabel konnte nicht entfernt werden. Versuch es noch mal?'
+        wordDelete: 'Komisch, die Vokabel konnte nicht entfernt werden. Versuch es noch mal?',
+        wordExists: 'Komisch, die Vokabel scheint es schon zu geben. Versuch es noch mal?'
       }
     },
     words: {
       title: 'Vokabeln',
       add: 'Neue Vokabel',
       save: 'Vokabel speichern',
-      category: 'Kategorie'
+      category: 'Kategorie',
+      action: 'Aktion'
+    },
+    action: {
+      edit: 'Editieren',
+      'delete': 'Löschen'
     }
   }
 

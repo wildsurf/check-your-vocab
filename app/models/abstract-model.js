@@ -44,7 +44,7 @@ var AbstractModel = Ember.Object.extend(Copyable, Serializable, {
 
   remove: function () {
 
-    return AbstractModel.remove(this.get('_id'));
+    return this.constructor.remove(this.get('_id'));
 
   }
 

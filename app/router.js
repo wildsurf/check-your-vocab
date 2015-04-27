@@ -15,11 +15,12 @@ Router.map(function() {
 
   this.resource('words', function() {
     this.route('new');
-    this.route('edit');
+    this.route('edit', { path: '/edit/:_id' });
   });
 
   this.resource('quiz', function() {
     this.route('new');
+    this.route('edit');
   });
 
 });

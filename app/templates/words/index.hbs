@@ -1,5 +1,6 @@
 <h2>{{t 'words.title'}} {{#link-to 'words.new' classNames="btn btn-primary pull-right"}}{{t 'words.add'}}{{/link-to}}</h2>
 <hr>
+{{show-message message=error type='danger'}}
 <table class="table table-striped top-three">
   <thead>
     <tr>
@@ -8,6 +9,7 @@
       <th>{{t 'index.translation'}}</th>
       <th>{{t 'index.score'}}</th>
       <th>{{t 'words.category'}}</th>
+      <th>{{t 'words.action'}}</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,14 @@
         <td>{{translation2}}</td>
         <td>{{score}}</td>
         <td>{{category}}</td>
+        <td>
+          <button class="btn btn-default btn-xs" {{action 'editWord' this}}>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"><span>
+          </button>
+          <button class="btn btn-default btn-xs" {{action 'deleteWord' this}}>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"><span>
+          </button>
+        </td>
       </tr>
     {{/each}}
   </tbody>
