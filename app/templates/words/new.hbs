@@ -29,6 +29,5 @@
     </div>
   </div>
 </form>
-{{#if error}}
-  <p class="message bg-danger">{{error}} <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
-{{/if}}
+{{show-message message=error type=danger}}
+
