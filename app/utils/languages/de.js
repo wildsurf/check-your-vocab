@@ -33,7 +33,8 @@ export default {
     words: {
       title: 'Vokabeln',
       add: 'Neue Vokabel',
-      save: 'Vokabel speichern'
+      save: 'Vokabel speichern',
+      category: 'Kategorie'
     }
   }
 

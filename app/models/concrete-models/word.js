@@ -5,7 +5,8 @@ var Defaults = {
   language2: '',
   score: 0,
   translation1: '',
-  translation2: ''
+  translation2: '',
+  category: ''
 };
 
 var WordClass = AbstractModel.extend({

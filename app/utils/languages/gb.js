@@ -32,7 +32,8 @@ export default {
     words: {
       title: 'Vocabulary',
       add: 'New Vocabulary',
-      save: 'Save vocabulary'
+      save: 'Save vocabulary',
+      category: 'Category'
     },
     title: 'Check your Vocab'
   }

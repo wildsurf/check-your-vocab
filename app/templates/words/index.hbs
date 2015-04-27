@@ -1,10 +1,24 @@
 <h2>{{t 'words.title'}} {{#link-to 'words.new' classNames="btn btn-primary pull-right"}}{{t 'words.add'}}{{/link-to}}</h2>
 <hr>
 <table class="table table-striped top-three">
-  {{partial 'partials/index/header-row'}}
+  <thead>
+    <tr>
+      <th>{{t 'index.languageCombo'}}</th>
+      <th>{{t 'index.word'}}</th>
+      <th>{{t 'index.translation'}}</th>
+      <th>{{t 'index.score'}}</th>
+      <th>{{t 'words.category'}}</th>
+    </tr>
+  </thead>
   <tbody>
     {{#each}}
-      {{partial 'partials/index/hiscore-row'}}
+      <tr>
+        <td><span class="flag-icon flag-icon-{{unbound language1}}"></span> > <span class="flag-icon flag-icon-{{unbound language2}}"></span></td>
+        <td>{{translation1}}</td>
+        <td>{{translation2}}</td>
+        <td>{{score}}</td>
+        <td>{{category}}</td>
+      </tr>
     {{/each}}
   </tbody>
 </table>
