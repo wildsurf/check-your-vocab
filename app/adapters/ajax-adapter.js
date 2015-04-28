@@ -72,6 +72,12 @@ export default {
 
     },
 
+    updateGeneric: function(data, url) {
+
+        return Server.invoke('PUT', url, data);
+
+    },
+
     remove: function (data, url) {
 
         if (_.isArray(data)) {

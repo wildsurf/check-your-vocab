@@ -5,6 +5,12 @@ var globals = {
     'gb',
     'de',
     'fr'
+  ],
+
+  languageChoices: [
+    'mixed',
+    'language1',
+    'language2'
   ]
 
 };

@@ -37,6 +37,19 @@ export default {
       category: 'Category',
       action: 'Action'
     },
+    quiz: {
+      title: 'Quiz',
+      add: 'New Quiz',
+      language: 'Languages',
+      progress: 'Finished',
+      created: 'Created',
+      category: 'Category',
+      score: 'Right answers/Total',
+      action: 'Action',
+      save: 'Generate Quiz',
+      visibleLanguage: 'Quiz language',
+      maxWords: 'Max word count'
+    },
     title: 'Check your Vocab',
     action: {
       edit: 'Edit',

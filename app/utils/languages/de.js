@@ -38,6 +38,19 @@ export default {
       category: 'Kategorie',
       action: 'Aktion'
     },
+    quiz: {
+      title: 'Quiz',
+      add: 'Neues Quiz',
+      language: 'Sprachen',
+      progress: 'Abgeschlossen',
+      created: 'Erstellt',
+      category: 'Kategorie',
+      score: 'Richtig/Total',
+      action: 'Aktion',
+      save: 'Quiz generieren',
+      visibleLanguage: 'Abfragesprache',
+      maxWords: 'Maximale Wortanzahl'
+    },
     action: {
       edit: 'Editieren',
       'delete': 'Löschen'

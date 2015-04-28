@@ -1,0 +1,36 @@
+<h2>{{t 'quiz.title'}} {{#link-to 'quiz.new' classNames="btn btn-primary pull-right"}}{{t 'quiz.add'}}{{/link-to}}</h2>
+<hr>
+{{show-message message=error type='danger'}}
+<table class="table table-striped top-three">
+  <thead>
+    <tr>
+      <th>{{t 'quiz.language'}}</th>
+      <th>{{t 'quiz.progress'}}</th>
+      <th>{{t 'quiz.created'}}</th>
+      <th>{{t 'quiz.category'}}</th>
+      <th>{{t 'quiz.score'}}</th>
+      <th>{{t 'words.action'}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each}}
+      <tr>
+        <td><span class="flag-icon flag-icon-{{unbound language1}}"></span> > <span class="flag-icon flag-icon-{{unbound language2}}"></span></td>
+        <td><span {{bind-attr class=":glyphicon open:glyphicon-remove:glyphicon-ok"}}></span></td>
+        <td>{{format-date date_created 'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{category}}</td>
+        <td>{{wordsCorrect}} / {{wordsTotal}}</td>
+        <td>
+          {{#if open}}
+          <button class="btn btn-default btn-xs" {{action 'playQuiz' this}}>
+            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"><span>
+          </button>
+          {{/if}}
+          <button class="btn btn-default btn-xs" {{action 'deleteQuiz' this}}>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"><span>
+          </button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

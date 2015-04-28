@@ -94,6 +94,12 @@ export default {
 
     },
 
+    updateGeneric: function(/*data, url*/) {
+
+        // TODO implement mock
+
+    },
+
     remove: function (data, url) {
 
         _.remove(this.cache[url], function(model) {
