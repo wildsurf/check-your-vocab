@@ -1,0 +1,27 @@
+<form class="form-horizontal">
+  <div class="form-group">
+    <div class="col-sm-5"><h3>{{visibleWord}}</h3></div>
+  </div>
+  {{#if solved}}
+    <div {{bind-attr class=":form-group :alert isCorrect:alert-success:alert-danger"}}>
+      <div class="col-sm-5"><h3>{{hiddenWord}} <small>{{translation}}</small></h3></div>
+    </div>
+  {{else}}
+    <div class="form-group">
+      <div class="col-sm-5">{{input class="form-control" autofocus="true" type="text" value=translation}}</div>
+    </div>
+  {{/if}}
+  {{#if solved}}
+    <div class="form-group">
+      <div class="col-sm-5">
+        <button class="btn btn-primary" {{action 'next'}}>{{t 'quiz.next'}}</button>
+      </div>
+    </div>
+  {{else}}
+    <div class="form-group">
+      <div class="col-sm-5">
+        <button class="btn btn-primary" {{action 'solve'}}>{{t 'quiz.solve'}}</button>
+      </div>
+    </div>
+  {{/if}}
+</form>

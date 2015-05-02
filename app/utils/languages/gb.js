@@ -48,7 +48,9 @@ export default {
       action: 'Action',
       save: 'Generate Quiz',
       visibleLanguage: 'Quiz language',
-      maxWords: 'Max word count'
+      maxWords: 'Max word count',
+      solve: 'Submit translation',
+      next: 'Next word'
     },
     title: 'Check your Vocab',
     action: {

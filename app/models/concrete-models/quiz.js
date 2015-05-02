@@ -15,25 +15,25 @@ var QuizClass = AbstractModel.extend({
 
     return unansweredWords.length > 0;
 
-  }.property('wordList.@each'),
+  }.property('wordList.@each.status'),
 
   wordsTotal: function() {
 
     return this.get('wordList').length;
 
-  }.property('wordList.@each'),
+  }.property('wordList.@each.status'),
 
   wordsCorrect: function() {
 
     return _.filter(this.get('wordList'), { status: 'correct' }).length;
 
-  }.property('wordList.@each'),
+  }.property('wordList.@each.status'),
 
   wordsAttempted: function() {
 
-    return _.union(this.get('wordsCorrect'), _.filter(this.get('wordList'), { status: 'incorrect' })).length;
+    return this.get('wordsCorrect') + _.filter(this.get('wordList'), { status: 'incorrect' }).length;
 
-  }.property('wordList.@each'),
+  }.property('wordList.@each.status'),
 
   assignWords: function(words) {
 

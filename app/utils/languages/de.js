@@ -49,7 +49,9 @@ export default {
       action: 'Aktion',
       save: 'Quiz generieren',
       visibleLanguage: 'Abfragesprache',
-      maxWords: 'Maximale Wortanzahl'
+      maxWords: 'Maximale Wortanzahl',
+      solve: 'Auflösen',
+      next: 'Nächstes Wort'
     },
     action: {
       edit: 'Editieren',
