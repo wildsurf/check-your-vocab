@@ -33,6 +33,7 @@ export default {
     words: {
       title: 'Vocabulary',
       add: 'New Vocabulary',
+      next: 'Next word',
       save: 'Save vocabulary',
       category: 'Category',
       action: 'Action'
@@ -40,6 +41,7 @@ export default {
     quiz: {
       title: 'Quiz',
       add: 'New Quiz',
+      next: 'Next Quiz',
       language: 'Languages',
       progress: 'Finished',
       created: 'Created',
@@ -49,8 +51,7 @@ export default {
       save: 'Generate Quiz',
       visibleLanguage: 'Quiz language',
       maxWords: 'Max word count',
-      solve: 'Submit translation',
-      next: 'Next word'
+      solve: 'Submit translation'
     },
     title: 'Check your Vocab',
     action: {

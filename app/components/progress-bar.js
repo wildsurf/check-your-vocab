@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   percent: function() {
 
-    var percent = this.get('progress') / this.get('total') * 100;
+    var percent = Math.floor(this.get('progress') / this.get('total') * 100);
 
     if (this._state === 'inDOM') {
 

@@ -9,6 +9,20 @@ export default Ember.Controller.extend({
   hiddenWord: null,
   translation: null,
 
+  quizObserver: function() {
+
+    this.setNextWord();
+
+  }.observes('words').on('init'),
+
+  isFinished: function() {
+
+    var quiz = this.get('controllers.quiz/play');
+
+    return quiz.get('wordsTotal') === quiz.get('wordsAttempted');
+
+  }.property('controllers.quiz/play.wordsAttempted'),
+
   getVisibleLanguage: function() {
 
     var quiz = this.get('controllers.quiz/play');
@@ -49,12 +63,6 @@ export default Ember.Controller.extend({
 
   },
 
-  init: function() {
-
-    this.setNextWord();
-
-  },
-
   actions: {
 
     solve: function() {
@@ -76,6 +84,28 @@ export default Ember.Controller.extend({
     next: function() {
 
       this.setNextWord();
+
+    },
+
+    nextDefaultAction: function() {
+
+      if (this.get('solved')) {
+
+        if (this.get('isFinished')) {
+
+          this.transitionToRoute('quiz.index');
+
+        } else {
+
+          this.send('next');
+
+        }
+
+      } else {
+
+        this.send('solve');
+
+      }
 
     }
 

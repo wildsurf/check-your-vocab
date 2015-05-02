@@ -34,6 +34,7 @@ export default {
     words: {
       title: 'Vokabeln',
       add: 'Neue Vokabel',
+      next: 'Nächstes Wort',
       save: 'Vokabel speichern',
       category: 'Kategorie',
       action: 'Aktion'
@@ -51,7 +52,7 @@ export default {
       visibleLanguage: 'Abfragesprache',
       maxWords: 'Maximale Wortanzahl',
       solve: 'Auflösen',
-      next: 'Nächstes Wort'
+      next: 'Nächstes Quiz'
     },
     action: {
       edit: 'Editieren',
