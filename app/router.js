@@ -20,6 +20,7 @@ Router.map(function() {
 
   this.resource('quiz', function() {
     this.route('new');
+    this.route('play', { path: '/play/:id' });
   });
 
 });

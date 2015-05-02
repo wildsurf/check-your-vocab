@@ -22,9 +22,9 @@
         <td>{{wordsCorrect}} / {{wordsTotal}}</td>
         <td>
           {{#if open}}
-          <button class="btn btn-default btn-xs" {{action 'playQuiz' this}}>
-            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"><span>
-          </button>
+            {{#link-to 'quiz.play' this.id classNames='btn btn-default btn-xs'}}
+              <span class="glyphicon glyphicon-play-circle" aria-hidden="true"><span>
+            {{/link-to}}
           {{/if}}
           <button class="btn btn-default btn-xs" {{action 'deleteQuiz' this}}>
             <span class="glyphicon glyphicon-trash" aria-hidden="true"><span>

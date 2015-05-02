@@ -29,6 +29,26 @@ var QuizClass = AbstractModel.extend({
 
   }.property('wordList.@each'),
 
+  wordsAttempted: function() {
+
+    return _.union(this.get('wordsCorrect'), _.filter(this.get('wordList'), { status: 'incorrect' })).length;
+
+  }.property('wordList.@each'),
+
+  assignWords: function(words) {
+
+    var wordList = this.get('wordList');
+
+    _.each(wordList, function(word) {
+
+      var fullWord = _.find(words, {_id: word.wordId});
+
+      _.merge(word, fullWord);
+
+    });
+
+  },
+
   validations: {
 
   }
