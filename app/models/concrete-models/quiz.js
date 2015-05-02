@@ -1,4 +1,5 @@
 import AbstractModel from 'check-your-vocab/models/abstract-model';
+import WordClass from 'check-your-vocab/models/concrete-models/word';
 
 var Defaults = {
   wordList: [],
@@ -64,7 +65,23 @@ QuizClass.reopenClass({
 
     updateWordInQuiz: function(quizId, data) {
 
-      return this.getAdapter().update(data, this.resourceUrl + '/' + quizId + '/updateWord');
+      if (data.status === 'correct') {
+        data.score++;
+      } else {
+        data.score--;
+      }
+
+      return this.getAdapter().updateGeneric({
+        wordId: data.wordId,
+        wordStatus: data.status
+      }, this.resourceUrl + '/' + quizId + '/updateWord').then(function() {
+
+        return WordClass.update({
+          _id: data.wordId,
+          score: data.score
+        });
+
+      });
 
     }
 

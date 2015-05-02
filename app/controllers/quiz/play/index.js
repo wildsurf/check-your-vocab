@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import QuizClass from 'check-your-vocab/models/concrete-models/quiz';
 
 export default Ember.Controller.extend({
 
@@ -54,6 +55,7 @@ export default Ember.Controller.extend({
 
     this.set('currentWordPair.status', 'correct');
     this.set('isCorrect', true);
+    QuizClass.updateWordInQuiz(this.get('controllers.quiz/play.model.id'), this.get('currentWordPair'));
 
   },
 
@@ -93,7 +95,13 @@ export default Ember.Controller.extend({
 
         if (this.get('isFinished')) {
 
-          this.transitionToRoute('quiz.index');
+          var quiz = this.get('controllers.quiz/play');
+
+          quiz.save().then(function() {
+
+            this.transitionToRoute('quiz.index');
+
+          });
 
         } else {
 
