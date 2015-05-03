@@ -22,7 +22,7 @@ module('Integration - Adding a new vocabulary', {
 });
 
 
-test('adding a new vocabulary adds it to the index page', function() {
+test('adding new vocabulary adds the word to the index page', function() {
 
   expect(7);
 

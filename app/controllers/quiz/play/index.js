@@ -55,13 +55,19 @@ export default Ember.Controller.extend({
 
     this.set('currentWordPair.status', 'correct');
     this.set('isCorrect', true);
-    QuizClass.updateWordInQuiz(this.get('controllers.quiz/play.model.id'), this.get('currentWordPair'));
 
   },
 
   markWordAsIncorrect: function() {
 
     this.set('currentWordPair.status', 'incorrect');
+    this.set('isCorrect', false);
+
+  },
+
+  updateWordInQuiz: function() {
+
+    QuizClass.updateWordInQuiz(this.get('controllers.quiz/play.model.id'), this.get('currentWordPair'));
 
   },
 
@@ -81,11 +87,30 @@ export default Ember.Controller.extend({
 
       }
 
+      this.updateWordInQuiz();
+
     },
 
     next: function() {
 
       this.setNextWord();
+
+    },
+
+    finish: function() {
+
+      var self = this;
+      var quizData = this.get('controllers.quiz/play.model');
+      var quiz = QuizClass.create({
+        _id: quizData._id,
+        date_completed: new Date()
+      });
+
+      quiz.save().then(function() {
+
+        self.transitionToRoute('quiz.index');
+
+      });
 
     },
 
@@ -95,13 +120,7 @@ export default Ember.Controller.extend({
 
         if (this.get('isFinished')) {
 
-          var quiz = this.get('controllers.quiz/play');
-
-          quiz.save().then(function() {
-
-            this.transitionToRoute('quiz.index');
-
-          });
+          this.send('finish');
 
         } else {
 
