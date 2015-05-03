@@ -59,7 +59,6 @@ module('Integration - Viewing the home page', {
   teardown: function() {
 
     killApp(App);
-    mockAdapter.cache = null;
 
   }
 });

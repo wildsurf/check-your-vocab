@@ -35,7 +35,6 @@ module('Integration - Viewing the vocab index page', {
   teardown: function() {
 
     killApp(App);
-    mockAdapter.cache = null;
 
   }
 });
