@@ -8,61 +8,61 @@ module('Integration - Viewing the home page', {
   setup: function() {
 
     App = startApp();
+    mockAdapter.cache = {
+      words: [
+         {
+          language1: 'en',
+          language2: 'es',
+          score: -2,
+          translation1: '3rd worst word',
+          translation2: '3rd worst word trans'
+        },
+        {
+          language1: 'en',
+          language2: 'es',
+          score: -5,
+          translation1: '2nd worst word',
+          translation2: '2nd worst word trans'
+        },
+        {
+          language1: 'en',
+          language2: 'es',
+          score: -10,
+          translation1: 'worst word',
+          translation2: 'worst word trans'
+        },
+        {
+          language1: 'en',
+          language2: 'es',
+          score: 10,
+          translation1: 'best word',
+          translation2: 'best word trans'
+        },
+        {
+          language1: 'en',
+          language2: 'es',
+          score: 5,
+          translation1: '2nd best word',
+          translation2: '2nd best word trans'
+        },
+        {
+          language1: 'en',
+          language2: 'es',
+          score: 2,
+          translation1: '3rd best word',
+          translation2: '3rd best word trans'
+        }
+      ]
+    };
 
   },
   teardown: function() {
 
     killApp(App);
+    mockAdapter.cache = null;
 
   }
 });
-
-mockAdapter.cache = {
-  words: [
-     {
-      language1: 'en',
-      language2: 'es',
-      score: -2,
-      translation1: '3rd worst word',
-      translation2: '3rd worst word trans'
-    },
-    {
-      language1: 'en',
-      language2: 'es',
-      score: -5,
-      translation1: '2nd worst word',
-      translation2: '2nd worst word trans'
-    },
-    {
-      language1: 'en',
-      language2: 'es',
-      score: -10,
-      translation1: 'worst word',
-      translation2: 'worst word trans'
-    },
-    {
-      language1: 'en',
-      language2: 'es',
-      score: 10,
-      translation1: 'best word',
-      translation2: 'best word trans'
-    },
-    {
-      language1: 'en',
-      language2: 'es',
-      score: 5,
-      translation1: '2nd best word',
-      translation2: '2nd best word trans'
-    },
-    {
-      language1: 'en',
-      language2: 'es',
-      score: 2,
-      translation1: '3rd best word',
-      translation2: '3rd best word trans'
-    }
-  ]
-};
 
 test('you see your top 3 best scoring words', function() {
   expect(5);

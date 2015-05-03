@@ -47,7 +47,8 @@
     "currentRouteName",
     "sinon",
     "$",
-    "_"
+    "_",
+    "XDate"
   ],
   "node": false,
   "browser": false,
