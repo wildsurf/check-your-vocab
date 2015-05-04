@@ -5,7 +5,7 @@ export default Ember.ObjectController.extend({
 
   onSaveSuccess: function() {
 
-    this.transitionToRoute('words.index');
+    this.transitionToRoute('auth.words.index');
 
   },
 

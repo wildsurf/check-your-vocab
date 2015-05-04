@@ -1,4 +1,4 @@
-<h2>{{t 'quiz.title'}} {{#link-to 'quiz.new' classNames="btn btn-primary pull-right"}}{{t 'quiz.add'}}{{/link-to}}</h2>
+<h2>{{t 'quiz.title'}} {{#link-to 'auth.quiz.new' classNames="btn btn-primary pull-right"}}{{t 'quiz.add'}}{{/link-to}}</h2>
 <hr>
 {{show-message message=error type='danger'}}
 <table class="table table-striped top-three">
@@ -22,7 +22,7 @@
         <td>{{wordsCorrect}} / {{wordsTotal}}</td>
         <td>
           {{#if open}}
-            {{#link-to 'quiz.play' this.id classNames='btn btn-default btn-xs'}}
+            {{#link-to 'auth.quiz.play' this.id classNames='btn btn-default btn-xs'}}
               <span class="glyphicon glyphicon-play-circle" aria-hidden="true"><span>
             {{/link-to}}
           {{/if}}

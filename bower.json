@@ -17,6 +17,7 @@
     "lodash": "~2.4.1",
     "socket.io-client": "*",
     "ember-i18n": "~2.9.1",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "ember-simple-auth": "0.8.0-beta.2"
   }
 }

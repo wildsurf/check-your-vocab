@@ -35,7 +35,7 @@ test('editing vocabulary updates the word on the index page', function() {
 
   expect(10);
 
-  visit('/words');
+  visit('/auth/words');
 
   andThen(function() {
     var firstRow = $('.words tbody tr').eq(0).find('td');

@@ -66,7 +66,7 @@ module('Integration - Viewing the home page', {
 test('you see your top 3 best scoring words', function() {
   expect(5);
 
-  visit('/');
+  visit('/auth/');
 
   andThen(function() {
     var firstRow = $('.top-three tbody tr').eq(0).find('td');
@@ -89,7 +89,7 @@ test('you see your top 3 best scoring words', function() {
 test('you see your top 3 worst scoring words', function() {
   expect(5);
 
-  visit('/');
+  visit('/auth/');
 
   andThen(function() {
     var firstRow = $('.bottom-three tbody tr').eq(0).find('td');

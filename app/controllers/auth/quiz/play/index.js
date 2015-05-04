@@ -3,8 +3,8 @@ import QuizClass from 'check-your-vocab/models/concrete-models/quiz';
 
 export default Ember.Controller.extend({
 
-  needs: ['quiz/play'],
-  words: Ember.computed.alias('controllers.quiz/play.model.wordList'),
+  needs: ['auth/quiz/play'],
+  words: Ember.computed.alias('controllers.auth/quiz/play.model.wordList'),
   currentWordPair: null,
   visibleWord: null,
   hiddenWord: null,
@@ -18,15 +18,15 @@ export default Ember.Controller.extend({
 
   isFinished: function() {
 
-    var quiz = this.get('controllers.quiz/play');
+    var quiz = this.get('controllers.auth/quiz/play');
 
     return quiz.get('wordsTotal') === quiz.get('wordsAttempted');
 
-  }.property('controllers.quiz/play.wordsAttempted'),
+  }.property('controllers.auth/quiz/play.wordsAttempted'),
 
   getVisibleLanguage: function() {
 
-    var quiz = this.get('controllers.quiz/play');
+    var quiz = this.get('controllers.auth/quiz/play');
     var visibleLanguage = quiz.get('visibleLanguage');
     var randomLanguage = (Math.floor(Math.random() * 2) === 0) ? 'language1' : 'language2';
 
@@ -67,7 +67,7 @@ export default Ember.Controller.extend({
 
   updateWordInQuiz: function() {
 
-    QuizClass.updateWordInQuiz(this.get('controllers.quiz/play.model.id'), this.get('currentWordPair'));
+    QuizClass.updateWordInQuiz(this.get('controllers.auth/quiz/play.model.id'), this.get('currentWordPair'));
 
   },
 
@@ -100,7 +100,7 @@ export default Ember.Controller.extend({
     finish: function() {
 
       var self = this;
-      var quizData = this.get('controllers.quiz/play.model');
+      var quizData = this.get('controllers.auth/quiz/play.model');
       var quiz = QuizClass.create({
         _id: quizData._id,
         date_completed: new Date()
@@ -108,7 +108,7 @@ export default Ember.Controller.extend({
 
       quiz.save().then(function() {
 
-        self.transitionToRoute('quiz.index');
+        self.transitionToRoute('auth.quiz.index');
 
       });
 

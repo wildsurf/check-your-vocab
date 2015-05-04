@@ -26,7 +26,7 @@ var elements = {
 test('on first arriving at the page, the language defaults to DE', function() {
   expect(2);
 
-  visit('/');
+  visit('/auth/');
 
   andThen(function() {
     var languageName = $(elements.currentLanguageName).text();
@@ -40,7 +40,7 @@ test('on first arriving at the page, the language defaults to DE', function() {
 test('when choosing another language, it displays the other language', function() {
   expect(1);
 
-  visit('/');
+  visit('/auth/');
 
   click(elements.dropdownToggle);
   click(elements.englishOption);

@@ -26,7 +26,7 @@ test('adding new vocabulary adds the word to the index page', function() {
 
   expect(7);
 
-  visit('/words');
+  visit('/auth/words');
 
   andThen(function() {
     equal($('.words tbody tr').length, 0, 'when we first get to the vocab index page, it is empty');

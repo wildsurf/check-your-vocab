@@ -27,7 +27,7 @@ export default Ember.ArrayController.extend({
 
     editWord: function(word) {
 
-      this.transitionToRoute('words.edit', word);
+      this.transitionToRoute('auth.words.edit', word);
 
     }
 

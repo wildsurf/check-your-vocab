@@ -4,7 +4,7 @@ export default Ember.ObjectController.extend({
 
   onSaveSuccess: function() {
 
-    this.transitionToRoute('quiz.index');
+    this.transitionToRoute('auth.quiz.index');
 
   },
 

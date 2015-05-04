@@ -13,17 +13,24 @@ Router.map(function() {
 
   }
 
-  this.resource('words', function() {
-    this.route('new');
-    this.route('edit', { path: '/edit/:_id' });
+  this.route('login');
+
+  this.resource('auth', function() {
+
+    this.resource('auth.words', { path: '/words' }, function() {
+      this.route('new');
+      this.route('edit', { path: '/edit/:_id' });
+    });
+
+    this.resource('auth.quiz', { path: '/quiz' }, function() {
+      this.route('new');
+      this.resource('auth.quiz.play', { path: '/play/:id' }, function() {
+        this.route('word');
+      });
+    });
+
   });
 
-  this.resource('quiz', function() {
-    this.route('new');
-    this.resource('quiz.play', { path: '/play/:id' }, function() {
-      this.route('word');
-    });
-  });
 
 });
 

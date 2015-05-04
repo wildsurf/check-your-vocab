@@ -11,13 +11,13 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
 
-      this.controllerFor('words.new').setProperties({ content: model });
+      this.controllerFor('auth.words.new').setProperties({ content: model });
 
   },
 
   renderTemplate: function() {
 
-      this.render('words/new');
+      this.render('auth/words/new');
 
   }
 

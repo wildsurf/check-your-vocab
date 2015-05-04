@@ -44,7 +44,7 @@ test('you see a list of vocabulary, newest words first', function() {
 
   expect(4);
 
-  visit('/words');
+  visit('/auth/words');
 
   andThen(function() {
     var firstRow = $('.words tbody tr').eq(0).find('td');
@@ -66,11 +66,11 @@ test('clicking on the new button brings you to the new vocab page', function() {
 
   expect(1);
 
-  visit('/words');
+  visit('/auth/words');
   click('.add-word');
 
   andThen(function() {
-    equal(currentURL(), '/words/new', 'brings you to /words/new');
+    equal(currentURL(), '/auth/words/new', 'brings you to /words/new');
   });
 
 });
@@ -79,11 +79,11 @@ test('clicking on the edit button brings you to the edit page', function() {
 
   expect(1);
 
-  visit('/words');
+  visit('/auth/words');
   click('.words tbody tr:first-child .glyphicon-edit');
 
   andThen(function() {
-    equal(currentURL(), '/words/edit/456', 'brings you to /words/edit/456');
+    equal(currentURL(), '/auth/words/edit/456', 'brings you to /words/edit/456');
   });
 
 });
@@ -92,7 +92,7 @@ test('clicking on the delete button removes the word from the list', function() 
 
   expect(3);
 
-  visit('/words');
+  visit('/auth/words');
   click('.words tbody tr:first-child .glyphicon-trash');
 
   andThen(function() {
