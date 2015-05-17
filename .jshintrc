@@ -6,7 +6,8 @@
     "$",
     "_",
     "sinon",
-    "XDate"
+    "XDate",
+    "Cookies"
   ],
   "browser": true,
   "boss": true,

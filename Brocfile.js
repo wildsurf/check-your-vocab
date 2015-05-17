@@ -10,6 +10,7 @@ app.import('bower_components/lodash/dist/lodash.min.js');
 app.import('bower_components/ember-i18n/lib/i18n.js');
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+app.import('bower_components/cookies-js/dist/cookies.js');
 
 // bootstrap fonts
 app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot',{
