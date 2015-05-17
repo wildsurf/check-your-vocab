@@ -13,7 +13,6 @@ module.exports = function(environment) {
         I18N_TRANSLATE_HELPER_SPAN: false
       }
     },
-
     contentSecurityPolicy: {
       'report-uri': 'http://localhost:4200',
       'style-src':  "'self' 'unsafe-inline' http://fonts.googleapis.com" // jshint ignore:line
@@ -53,6 +52,12 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['simple-auth'] = {
+    store: 'simple-auth-session-store:cookie',
+    authorizer: 'authorizer:custom',
+    crossOriginWhitelist: ['http://localhost:3000']
+  };
 
   return ENV;
 };
