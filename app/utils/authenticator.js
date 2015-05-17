@@ -42,7 +42,15 @@ export default Base.extend({
 
   invalidate: function() {
 
-    Cookies.expire(this.get('cookieName'));
+    var cookieName = this.get('cookieName');
+
+    return new Ember.RSVP.Promise(function(resolve) {
+
+      Cookies.expire(cookieName);
+      resolve();
+
+    });
+
 
   }
 });

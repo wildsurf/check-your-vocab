@@ -7,6 +7,9 @@
       {{/if}}
       <ul class="nav navbar-nav navbar-right">
         {{partial 'partials/navigation/language-selector'}}
+        {{#if session.isAuthenticated}}
+          {{partial 'partials/navigation/user-header'}}
+        {{/if}}
       </ul>
     </div><!--/.nav-collapse -->
   </div>
