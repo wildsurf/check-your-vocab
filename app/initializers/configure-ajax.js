@@ -5,7 +5,7 @@ export function initialize() {
       crossDomain: true
     };
     options.xhrFields = {
-      withCredentials: true
+      allow: true
     };
   });
 }

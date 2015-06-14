@@ -4,8 +4,29 @@ import ENV from 'check-your-vocab/config/environment';
 
 export default Base.extend({
 
-  tokenEndpoint: 'http://' + ENV.APP.server.url + '/login',
-  cookieName: 'connect.sid',
+  getLoginRequest: function(credentials) {
+
+    var type = credentials.type;
+
+    if (!type) {
+
+      return {
+        url: 'http://' + ENV.APP.server.url + '/login',
+        method: 'POST',
+        data: JSON.stringify({ email: credentials.identification, password: credentials.password }),
+        contentType: 'application/json'
+      };
+
+    } else if (type === 'facebook') {
+
+      return {
+        url: 'http://' + ENV.APP.server.url + '/auth/facebook',
+        method: 'GET'
+      };
+
+    }
+
+  },
 
   restore: function(data) {
 
@@ -20,14 +41,13 @@ export default Base.extend({
   },
 
   authenticate: function(credentials) {
-    var _this = this;
+
+    var loginRequest = this.getLoginRequest(credentials);
+    _.merge(loginRequest, {contentType: 'application/json'});
+
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      Ember.$.ajax({
-        url:         _this.tokenEndpoint,
-        type:        'POST',
-        data:        JSON.stringify({ email: credentials.identification, password: credentials.password }),
-        contentType: 'application/json'
-      }).then(function(data) {
+      Ember.$.ajax(loginRequest).then(function(data) {
+        localStorage.setItem('token', 'Bearer ' + data.session.token);
         Ember.run(function() {
           resolve(data);
         });
@@ -42,11 +62,10 @@ export default Base.extend({
 
   invalidate: function() {
 
-    var cookieName = this.get('cookieName');
+    localStorage.setItem('token', null);
 
     return new Ember.RSVP.Promise(function(resolve) {
 
-      Cookies.expire(cookieName);
       resolve();
 
     });
