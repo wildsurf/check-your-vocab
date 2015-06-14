@@ -4,17 +4,14 @@ import ENV from 'check-your-vocab/config/environment';
 
 export default Base.extend({
 
-  getLoginRequest: function(credentials) {
-
-    var type = credentials.type;
+  getLoginRequest: function(credentials, type) {
 
     if (!type) {
 
       return {
         url: 'http://' + ENV.APP.server.url + '/login',
         method: 'POST',
-        data: JSON.stringify({ email: credentials.identification, password: credentials.password }),
-        contentType: 'application/json'
+        data: JSON.stringify({ email: credentials.identification, password: credentials.password })
       };
 
     } else if (type === 'facebook') {
@@ -40,10 +37,18 @@ export default Base.extend({
 
   },
 
-  authenticate: function(credentials) {
+  authenticate: function(credentials, type) {
 
-    var loginRequest = this.getLoginRequest(credentials);
+    var loginRequest = this.getLoginRequest(credentials, type);
     _.merge(loginRequest, {contentType: 'application/json'});
+
+    if (type === 'facebook') {
+      return new Ember.RSVP.Promise(function(resolve) {
+        Ember.run(function() {
+          resolve({});
+        });
+      });
+    }
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax(loginRequest).then(function(data) {

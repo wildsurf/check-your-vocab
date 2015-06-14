@@ -29,6 +29,9 @@ module.exports = function(environment) {
     ENV.APP.server = {
       url: 'localhost:3000'
     };
+    ENV.APP.client = {
+      url: 'localhost:4200'
+    };
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     ENV.APP.LOG_TRANSITIONS = true;

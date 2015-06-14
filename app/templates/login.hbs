@@ -18,7 +18,14 @@
 
     <hr>
 
+    <p>Or Login or Register with:</p>
+
+    <a href="{{unbound controller.facebookLoginUrl}}" class="btn btn-primary">Facebook</a>
+
+    <a {{action 'authenticate' 'twitter'}} class="btn btn-info">Twitter</a>
+
+    <hr>
+
     <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
 
 </div>
